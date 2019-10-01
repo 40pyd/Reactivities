@@ -12,7 +12,6 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   return (
     <Fragment>
       <Route exact path="/" component={HomePage} />
-      <Route path="/activities/:id" component={ActivityDetails} />
       <Route
         path={"/(.+)"}
         render={() => (
