@@ -4,7 +4,6 @@ using Application.Interfaces;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Persistence;
 
 namespace Application.User
 {
@@ -27,6 +26,7 @@ namespace Application.User
             public async Task<User> Handle(Query request, CancellationToken cancellationToken)
             {
                 var user = await _userManager.FindByNameAsync(_userAccessor.GetCurrentUserName());
+                
                 return new User
                 {
                     DisplayName = user.DisplayName,

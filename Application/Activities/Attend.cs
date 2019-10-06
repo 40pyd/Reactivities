@@ -16,7 +16,6 @@ namespace Application.Activities
         public class Command : IRequest
         {
             public Guid Id { get; set; }
-
         }
 
         public class Handler : IRequestHandler<Command>
@@ -36,12 +35,14 @@ namespace Application.Activities
                 if (activity == null)
                     throw new RestException(HttpStatusCode.NotFound, new { Activity = "Could not find activity" });
 
-                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUserName());
+                var user = await _context.Users.SingleOrDefaultAsync(x => 
+                    x.UserName == _userAccessor.GetCurrentUserName());
 
                 var attendance = await _context.UserActivities.SingleOrDefaultAsync(x => x.ActivityId == activity.Id && x.AppUserId == user.Id);
 
                 if (attendance != null)
-                    throw new RestException(HttpStatusCode.BadRequest, new { Attendance = "Already attending this activity" });
+                    throw new RestException(HttpStatusCode.BadRequest, 
+                        new { Attendance = "Already attending this activity" });
                 attendance = new UserActivity
                 {
                     Activity = activity,

@@ -24,7 +24,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   const { setApploaded, token, appload } = rootStore.commonStore;
   const { getUser } = rootStore.userStore;
 
-  useEffect(() => {
+  useEffect(() => { 
     if (token) {
       getUser().finally(() => setApploaded());
     } else {

@@ -59,7 +59,10 @@ namespace Application.Activities
                     Venue = request.Venue
                 };
 
-                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUserName());
+                _context.Activities.Add(activity);
+                
+                var user = await _context.Users.SingleOrDefaultAsync(x => 
+                    x.UserName == _userAccessor.GetCurrentUserName());
 
                 var attendee = new UserActivity
                 {
@@ -70,7 +73,6 @@ namespace Application.Activities
                 };
 
                 _context.UserActivities.Add(attendee);
-                _context.Activities.Add(activity);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

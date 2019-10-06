@@ -19,7 +19,7 @@ const RegisterForm = () => {
   const rootStore = useContext(RootStoreContext);
   const { register } = rootStore.userStore;
 
-  return (
+  return ( 
     <FinalForm
       onSubmit={(values: IUserFormValues) =>
         register(values).catch(error => ({
@@ -45,7 +45,7 @@ const RegisterForm = () => {
           <Field
             name="username"
             component={TextInput}
-            placeholder="Username"
+            placeholder="User name"
           ></Field>
           <Field
             name="displayName"
@@ -57,6 +57,7 @@ const RegisterForm = () => {
             name="password"
             component={TextInput}
             placeholder="Password"
+            type="password"
           ></Field>
           {submitError && !dirtySinceLastSubmit && (
             <ErrorMessage error={submitError} />

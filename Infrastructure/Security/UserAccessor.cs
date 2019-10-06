@@ -1,3 +1,4 @@
+
 using System.Linq;
 using System.Security.Claims;
 using Application.Interfaces;
@@ -15,8 +16,9 @@ namespace Infrastructure.Security
 
         public string GetCurrentUserName()
         {
-            var userName = _httpContextAccessor.HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
-            return userName;
+            var username = _httpContextAccessor.HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            return username;
         }
     }
 }

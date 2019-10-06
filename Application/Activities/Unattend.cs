@@ -43,7 +43,7 @@ namespace Application.Activities
                     return Unit.Value;
 
                 if(attendance.IsHost)
-                throw new RestException(HttpStatusCode.BadRequest, new{Attendance ="You cannot remove yourself as host"});
+                    throw new RestException(HttpStatusCode.BadRequest, new{Attendance ="You cannot remove yourself as host"});
                 
                 _context.UserActivities.Remove(attendance);
 

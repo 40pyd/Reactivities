@@ -16,7 +16,7 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
+ 
 axios.interceptors.response.use(undefined, error => {
   if (error.message === "Network Error" && !error.response) {
     toast.error("Network error - make sure API is running!");
@@ -74,17 +74,19 @@ const Activities = {
   create: (activity: IActivity) => requests.post("/activities", activity),
   update: (activity: IActivity) =>
     requests.put(`/activities/${activity.id}`, activity),
-  delete: (id: string) => requests.del(`/activities/${id}`)
+  delete: (id: string) => requests.del(`/activities/${id}`),
+  attend:(id:string) => requests.post(`/activities/${id}/attend`, {}),
+  unattend:(id:string) => requests.del(`/activities/${id}/attend`)
 };
 
 const User = {
-  current: (): Promise<IUser> => requests.get("/user"),
+  current: (): Promise<IUser> => requests.get('/user'),
   login: (user: IUserFormValues): Promise<IUser> =>
-    requests.post("/user/login", user),
+    requests.post(`/user/login`, user),
   register: (user: IUserFormValues): Promise<IUser> =>
-    requests.post("/user/register", user)
+    requests.post(`/user/register`, user)
 };
-
+ 
 export default {
   Activities,
   User
