@@ -8,6 +8,8 @@ using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Persistence;
+using System.Linq;
+
 
 namespace Application.User
 {
@@ -53,7 +55,7 @@ namespace Application.User
                         DisplayName = user.DisplayName,
                         Token = _jwtGenerator.CreateToken(user),
                         UserName = user.UserName,
-                        Image = null
+                        Image = user.Photos.FirstOrDefault(x=>x.IsMain)?.Url
                     };
                 }
                 throw new RestException(HttpStatusCode.Unauthorized);
