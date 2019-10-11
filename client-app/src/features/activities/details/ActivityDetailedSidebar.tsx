@@ -5,7 +5,7 @@ import { IAttendee } from "../../../app/models/activity";
 import { observer } from "mobx-react-lite";
 
 interface IProps {
-  attendees: IAttendee[]
+  attendees: IAttendee[];
 }
 
 const ActivityDetailedSidebar: React.FC<IProps> = ({ attendees }) => {
@@ -37,13 +37,16 @@ const ActivityDetailedSidebar: React.FC<IProps> = ({ attendees }) => {
               <Image size="tiny" src={attendee.image || "/assets/user.png"} />
               <Item.Content verticalAlign="middle">
                 <Item.Header as="h3">
-                  <Link to={`/profile/${attendee.userName}`}>{attendee.displayName}</Link>
+                  <Link to={`/profile/${attendee.userName}`}>
+                    {attendee.displayName}
+                  </Link>
                 </Item.Header>
-                <Item.Extra style={{ color: "orange" }}>Following</Item.Extra>
+                {attendee.following && (
+                  <Item.Extra style={{ color: "orange" }}>Following</Item.Extra>
+                )}
               </Item.Content>
             </Item>
           ))}
-
         </List>
       </Segment>
     </Fragment>

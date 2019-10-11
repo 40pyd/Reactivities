@@ -4,8 +4,7 @@ import {
   Header,
   Form,
   Button,
-  Comment,
-  TextArea
+  Comment
 } from "semantic-ui-react";
 import { RootStoreContext } from "../../../app/stores/rootStore";
 import { Form as FinalForm, Field } from "react-final-form";
