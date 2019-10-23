@@ -19,8 +19,7 @@ const LoginForm = () => {
 
   return (
     <FinalForm
-      onSubmit={(values: IUserFormValues) =>
-        login(values).catch(error => ({
+      onSubmit={(values: IUserFormValues) => login(values).catch(error => ({
           [FORM_ERROR]: error
         }))
       }
@@ -38,15 +37,15 @@ const LoginForm = () => {
             as="h2"
             content="Login to Reactivities"
             color="teal"
-            textAlign="center"
+            textAlign="center" 
           />
-          <Field name="email" component={TextInput} placeholder="Email"></Field>
+          <Field name='email' component={TextInput} placeholder="Email"/>
           <Field
-            name="password"
+            name='password'
             component={TextInput}
             placeholder="Password"
             type='password'
-          ></Field>
+          />
           {submitError && !dirtySinceLastSubmit && (
             <ErrorMessage
               error={submitError}
@@ -54,7 +53,7 @@ const LoginForm = () => {
             />
           )}
           <Button
-            disabled={(invalid && dirtySinceLastSubmit) || pristine}
+            disabled={(invalid && !dirtySinceLastSubmit) || pristine}
             loading={submitting}
             color="teal"
             content="Login"

@@ -9,7 +9,7 @@ using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-
+ 
 namespace Application.Activities
 {
     public class List
@@ -54,17 +54,15 @@ namespace Application.Activities
                 .Where(x => x.Date >= request.StartDate)
                 .OrderBy(x => x.Date)
                 .AsQueryable();
-
+                
                 if (request.IsGoing && !request.IsHost)
                 {
-                    queryable = queryable.Where(x => x.UserActivities
-                        .Any(a => a.AppUser.UserName == _userAccessor.GetCurrentUserName()));
+                    queryable = queryable.Where(x => x.UserActivities.Any(a => a.AppUser.UserName == _userAccessor.GetCurrentUserName()));
                 }
 
                 if (request.IsHost && !request.IsGoing)
                 {
-                    queryable = queryable.Where(x => x.UserActivities
-                        .Any(a => a.AppUser.UserName == _userAccessor.GetCurrentUserName() && a.IsHost == true));
+                    queryable = queryable.Where(x => x.UserActivities.Any(a => a.AppUser.UserName == _userAccessor.GetCurrentUserName() && a.IsHost));
                 }
 
                 var activities = await queryable

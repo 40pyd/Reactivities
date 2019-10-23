@@ -49,7 +49,7 @@ export class ActivityFormValues implements IActivityFormValues {
 }
 
 export interface IAttendee {
-  userName: string;
+  username: string;
   displayName: string;
   image: string;
   isHost: boolean;

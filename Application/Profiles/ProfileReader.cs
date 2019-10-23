@@ -18,7 +18,7 @@ namespace Application.Profiles
             this._context = context;
         }
 
-        public async Task<Profile> ReadFrofile(string username)
+        public async Task<Profile> ReadFromfile(string username)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == username);
             if (user == null)

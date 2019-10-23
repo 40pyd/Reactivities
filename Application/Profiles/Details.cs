@@ -21,11 +21,11 @@ namespace Application.Profiles
             public Handler(IProfileReader profileReader)
             {
                 _profileReader = profileReader;
-            }
+            } 
 
             public async Task<Profile> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _profileReader.ReadFrofile(request.UserName);
+                return await _profileReader.ReadFromfile(request.UserName);
             }
         }
     }

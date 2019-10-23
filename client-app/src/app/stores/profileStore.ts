@@ -33,7 +33,7 @@ export default class ProfileStore {
 
   @computed get isCurrentUser() {
     if (this.rootStore.userStore.user && this.profile) {
-      return this.rootStore.userStore.user.userName === this.profile.userName;
+      return this.rootStore.userStore.user.username === this.profile.userName;
     } else {
       return false;
     }

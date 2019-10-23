@@ -45,7 +45,7 @@ namespace Application.Followers
                             foreach (var follower in userFollowings)
                             {
                                 profiles.Add(await _profileReader
-                                    .ReadFrofile(follower.Observer.UserName));
+                                    .ReadFromfile(follower.Observer.UserName));
                             }
                             break;
                         }
@@ -57,7 +57,7 @@ namespace Application.Followers
                             foreach (var follower in userFollowings)
                             {
                                 profiles.Add(await _profileReader
-                                    .ReadFrofile(follower.Target.UserName));
+                                    .ReadFromfile(follower.Target.UserName));
                             }
                             break;
                         }

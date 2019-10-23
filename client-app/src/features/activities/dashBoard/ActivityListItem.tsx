@@ -21,10 +21,10 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
             <Item.Content>
               <Item.Header as={Link} to={`/activities/${activity.id}`}>
                 {activity.title}
-              </Item.Header>
+              </Item.Header> 
               <Item.Description>
                 Hosted by 
-                <Link to={`/profile/${host.userName}`}> 
+                <Link to={`/profile/${host.username}`}> 
                     {" "}{host.displayName}
                 </Link>
               </Item.Description>
@@ -63,7 +63,7 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
           as={Link}
           to={`/activities/${activity.id}`}
           floated="right"
-          content="View"
+          content="Details"
           color="blue"
         ></Button>
       </Segment>

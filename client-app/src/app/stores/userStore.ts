@@ -8,13 +8,13 @@ export default class UseStore {
   rootStore: RootStore;
 
   constructor(rootStore: RootStore) {
-    this.rootStore = rootStore; 
+    this.rootStore = rootStore;
   }
 
   @observable user: IUser | null = null;
 
-  @computed get IsLoggedIn() { 
-    return !!this.user
+  @computed get IsLoggedIn() {
+    return !!this.user;
   }
 
   @action login = async (values: IUserFormValues) => {
