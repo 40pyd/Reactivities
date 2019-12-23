@@ -12,7 +12,7 @@ const ProfileCard: React.FC<IProps> = ({profile}) => {
     <Card as={Link} to={`/profile/${profile.userName}`}>
       <Image src={profile.image || "/assets/user.png"} />
       <Card.Content>
-        <Card.Header>{profile.displayName}</Card.Header>
+        <Card.Header textAlign="center">{profile.displayName}</Card.Header>
       </Card.Content>
       <Card.Content extra>
         <div>

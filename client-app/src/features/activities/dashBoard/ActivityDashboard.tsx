@@ -29,8 +29,11 @@ const ActivityDashboard: React.FC = () => {
   }, [loadActivities]);
 
   return (
-    <Grid>
-      <Grid.Column width={10}>
+    <Grid centered>
+      <Grid.Column width={16}>
+        <ActivityFilters />
+      </Grid.Column>
+      <Grid.Column width={13}>
         {loadingInitial && page === 0 ? (
           <ActivityListItemPlaceholder />
         ) : (
@@ -44,9 +47,7 @@ const ActivityDashboard: React.FC = () => {
           </InfiniteScroll>
         )}
       </Grid.Column>
-      <Grid.Column width={6}>
-        <ActivityFilters />
-      </Grid.Column>
+      
       <Grid.Column width={10}>
         <Loader active={loadingNext} />
       </Grid.Column>

@@ -7,9 +7,9 @@ import { format } from "date-fns";
 import { RootStoreContext } from "../../app/stores/rootStore";
 
 const panes = [
-  { menuItem: "Future Events", pane: { key: "futureEvents" } },
-  { menuItem: "Past Events", pane: { key: "pastEvents" } },
-  { menuItem: "Hosting", pane: { key: "hosted" } }
+  { menuItem: "Future", pane: { key: "futureEvents" } },
+  { menuItem: "Past", pane: { key: "pastEvents" } },
+  { menuItem: "Hosted", pane: { key: "hosted" } }
 ];
 
 const ProfileEvents = () => {
@@ -57,7 +57,7 @@ const ProfileEvents = () => {
             onTabChange={(e, data) => handleTabChange(e, data)}
           />
           <br />
-          <Card.Group itemsPerRow={4}>
+          <Card.Group itemsPerRow={1}>
             {userActivities.map((activity: IUserActivity) => (
               <Card
                 as={Link}

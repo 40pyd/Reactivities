@@ -7,7 +7,8 @@ import { format } from "date-fns";
 import { RootStoreContext } from "../../../app/stores/rootStore";
 
 const activityImageStyle = {
-  filter: "brightness(30%)"
+  filter: "brightness(30%)",
+  minHeight: 160
 };
 
 const activityImageTextStyle = {
@@ -35,10 +36,10 @@ const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({
         />
         <Segment basic style={activityImageTextStyle}>
           <Item.Group>
-            <Item>
+            <Item style={{ marginBottom: 0 }}>
               <Item.Content>
                 <Header
-                  size="huge"
+                  size="tiny"
                   content={activity.title}
                   style={{ color: "white" }}
                 />

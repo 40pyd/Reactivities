@@ -22,13 +22,12 @@ const PhotoUploadWidget: React.FC<IProps> = ({ loading, uploadPhoto }) => {
   return (
     <Fragment>
       <Grid>
-        <Grid.Column width={4}>
-          <Header color="teal" sub content="Step 1 - Add Photo" />
+        <Grid.Column width={5}>
+          <Header color="teal" sub content="1 Add" textAlign="center" style={{ marginBottom: 10}}/>
           <PhotoWidgetDropzone setFiles={setFiles} />
         </Grid.Column>
-        <Grid.Column width={1} />
-        <Grid.Column width={4}>
-          <Header sub color="teal" content="Step 2 - Resize image" />
+        <Grid.Column width={5}>
+          <Header sub color="teal" content="2 Resize" textAlign="center" style={{ marginBottom: 10}}/>
           {files.length > 0 && (
             <PhotoWidgetCropper
               setImage={setImage}
@@ -36,16 +35,15 @@ const PhotoUploadWidget: React.FC<IProps> = ({ loading, uploadPhoto }) => {
             />
           )}
         </Grid.Column>
-        <Grid.Column width={1} />
         <Grid.Column width={4}>
-          <Header sub color="teal" content="Step 3 - Preview & Upload" />
+          <Header sub color="teal" content="3 Upload" textAlign="center" style={{ marginBottom: 10}}/>
           {files.length > 0 && (
             <Fragment>
               <div
                 className="img-preview"
                 style={{ minHeight: "200px", overflow: "hidden" }}
               />
-              <Button.Group width={2}>
+              <Button.Group width={2} style={{ marginTop: 10}}>
                 <Button
                   positive
                   icon="check"

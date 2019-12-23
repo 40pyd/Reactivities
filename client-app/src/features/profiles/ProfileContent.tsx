@@ -9,18 +9,18 @@ interface IProps {
 }
 
 const panes = [
-  { menuItem: "About", render: () => <Tab.Pane>About content</Tab.Pane> },
-  { menuItem: "Photos", render: () => <ProfilePhotos /> },
+  { menuItem: "Info", render: () => <Tab.Pane>About content</Tab.Pane> },
+  { menuItem: "Photo", render: () => <ProfilePhotos /> },
   {
-    menuItem: "Activities",
+    menuItem: "Events",
     render: () => <ProfileActivities />
   },
   {
-    menuItem: "Followers",
+    menuItem: "Likers",
     render: () => <ProfileFollowings />
   },
   {
-    menuItem: "Following",
+    menuItem: "Likes",
     render: () => <ProfileFollowings />
   }
 ];
@@ -28,9 +28,8 @@ const panes = [
 const ProfileContent: React.FC<IProps> = ({ setActiveTab }) => {
   return (
     <Tab
-      menu={{ fluid: true, vertical: true }}
-      menuPosition="right"
-      panes={panes}
+      menu={{ color: 'blue', inverted: true, attached: false, tabular: false }}
+          panes={panes}
       onTabChange={(e, data) => setActiveTab(data.activeIndex)}
     />
   );
